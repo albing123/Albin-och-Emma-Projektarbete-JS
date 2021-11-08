@@ -271,11 +271,11 @@ span {
 }
 
 .service-card img {
-    width: 20vh;
-    height: 20vh;
-    object-fit: cover;
-    border: 2px dotted #fff;
-    border-radius: 50%;
+  width: 20vh;
+  height: 20vh;
+  object-fit: cover;
+  border: 2px dotted #fff;
+  border-radius: 50%;
 }
 
 .service-card p {
@@ -486,7 +486,7 @@ footer {
 #thumbnails-wrapper {
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   overflow: auto;
   background-color: #9c8679;
@@ -566,7 +566,6 @@ footer {
   display: flex;
   justify-content: flex-end;
   width: 90%;
-  
 }
 
 #gallery-modal-header span i {
