@@ -578,3 +578,10 @@ i:hover {
   font-size: 30px;
   color: beige;
 }
+
+.galleryimages {
+    height: 200px;
+    width: 300px;
+    cursor: pointer;
+    
+}

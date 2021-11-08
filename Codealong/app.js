@@ -63,7 +63,7 @@ const closeServiceModal = () => {
   document.getElementById("service-modal-wrapper").style.display = "none";
 };
 
-//A for loop that checks which card that is clicked with the help of an eventlistener and then fires the function OpenserviceModal. 
+
 const openServiceModal = () => {
   const cards = document.getElementsByClassName("service-card");
   for (let i = 0; i < cards.length; i++) {
@@ -122,7 +122,7 @@ const setActiveThumbNail = () => {
   }
 };
 
-
+//
 const prevImage = () => {
   const thumbs = document.getElementsByClassName("thumbnail");
   for (let i = 0; i < thumbs.length; i++) {
@@ -168,6 +168,25 @@ window.addEventListener("load", () => {
   setActiveThumbNail();
   document.getElementById("prev-btn").addEventListener("click", prevImage);
   document.getElementById("next-btn").addEventListener("click", nextImage);
+
+
+  document.getElementById("gallery-row").innerHTML = rowimages
+  .map(
+    (img) =>
+      `<img src="./media/${img.name}" class="galleryimages">`
+  )
+
+  document
+    .getElementById("main-image")
+    .setAttribute("src", `./media/${images[0].name}`);
+  document.getElementById("gallery-row").innerHTML = rowimages
+    .map(
+      (img) =>
+        `<img src="./media/${img.name}" class="galleryimages" onclick="setMainImage(this.src)">`
+    )
+    .join("");
+
+
 });
 
 
@@ -179,3 +198,26 @@ const opengallerymodal = () => {
 const closeLightBox = () => {
   document.getElementById("gallery-modal-wrapper").style.display = "none";
 };
+
+
+  const rowimages = [
+  {
+    name: "imgone.jpg",
+  },
+  {
+    name: "imgtwo.jpg",
+  },
+  {
+    name: "imgthree.jpg",
+  },
+  {
+    name: "imgfour.jpg",
+  },
+  {
+    name: "imgfive.jpg",
+  },
+  {
+    name: "imgsix.jpg",
+  },
+];
+
