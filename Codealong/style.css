@@ -270,6 +270,14 @@ span {
   transform: scale(1.01);
 }
 
+.service-card img {
+    width: 20vh;
+    height: 20vh;
+    object-fit: cover;
+    border: 2px dotted #fff;
+    border-radius: 50%;
+}
+
 .service-card p {
   padding: 20px;
   height: 20vh;
