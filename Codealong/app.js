@@ -33,7 +33,7 @@ window.addEventListener("load", function () {
   }
 });
 
-//service-modal code
+//Giving the variable "services" an array with data for all the cards. 
 const services = [
     {
         name: "Name Lastname",
@@ -58,10 +58,12 @@ const services = [
     },
 ];
 
+//A function to close the card. 
 const closeServiceModal = () => {
   document.getElementById("service-modal-wrapper").style.display = "none";
 };
 
+//A for loop that checks which card that is clicked with the help of an eventlistener and then fires the function OpenserviceModal. 
 const openServiceModal = () => {
   const cards = document.getElementsByClassName("service-card");
   for (let i = 0; i < cards.length; i++) {
@@ -76,6 +78,7 @@ const openServiceModal = () => {
   }
 };
 
+//Loads the function openservicemodal on start up. 
 window.addEventListener("load", openServiceModal);
 
 //Image-slider code
@@ -101,11 +104,13 @@ const images = [
   },
 ];
 
+//Gives the <img class="main-image"> an src. 
 const setMainImage = (src) => {
   document.getElementById("main-image").setAttribute("src", src);
   setActiveThumbNail();
 };
 
+//Checks which img is in the "main-img" with a for loop then gives that thumbnail with the same src a border and if its not the same it gives it a border but with 0px
 const setActiveThumbNail = () => {
   const thumbs = document.getElementsByClassName("thumbnail");
   for (let i = 0; i < thumbs.length; i++) {
@@ -116,6 +121,7 @@ const setActiveThumbNail = () => {
     }
   }
 };
+
 
 const prevImage = () => {
   const thumbs = document.getElementsByClassName("thumbnail");
