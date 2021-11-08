@@ -158,7 +158,17 @@ window.addEventListener("load", () => {
     )
     .join("");
 
+  
   setActiveThumbNail();
   document.getElementById("prev-btn").addEventListener("click", prevImage);
   document.getElementById("next-btn").addEventListener("click", nextImage);
 });
+
+
+const opengallerymodal = () => {
+  document.getElementById("gallery-modal-wrapper").style.display = "flex";
+};
+
+const closeLightBox = () => {
+  document.getElementById("gallery-modal-wrapper").style.display = "none";
+};

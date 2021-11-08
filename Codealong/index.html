@@ -98,16 +98,29 @@
             <i class="fa fa-github"></i>
         </div>
     </section>
+    <div class="gallery-row">
+        <img onclick="opengallerymodal()" src="/Codealong/media/imgone.jpg">
+        <img onclick="opengallerymodal()" src="/Codealong/media/imgtwo.jpg">
+        <img onclick="opengallerymodal()" src="/Codealong/media/imgthree.jpg">
+        <img onclick="opengallerymodal()" src="/Codealong/media/imgfour.jpg">
+        <img onclick="opengallerymodal()" src="/Codealong/media/imgfive.jpg">
+        <img onclick="opengallerymodal()" src="/Codealong/media/imgsix.jpg">
+    </div>
+    <div id="gallery-modal-wrapper">
     <section id="images-section">
+        <div id="gallery-modal-header">
+            <span onclick="closeLightBox()"><i class="fa fa-times"></i></span>
+        </div>
         <main class="main-image-wrapper">
             <img id="main-image" src="">
             <span id="prev-btn"><i class="fa fa-chevron-left"></i></span>
             <span id="next-btn"><i class="fa fa-chevron-right"></i></span>
         </main>
         <div id="thumbnails-wrapper">
-
         </div>
     </section>
+    </div>
+    
     <footer id="contact-section">
         <form onsubmit="sendFormInfo()">
             <input id="something" type="text" placeholder="Email" required />
