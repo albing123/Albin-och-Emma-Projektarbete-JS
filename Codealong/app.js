@@ -173,6 +173,7 @@ window.addEventListener("load", () => {
 
 const opengallerymodal = () => {
   document.getElementById("gallery-modal-wrapper").style.display = "flex";
+  
 };
 
 const closeLightBox = () => {
