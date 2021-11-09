@@ -33,9 +33,9 @@ window.addEventListener("load", function () {
   }
 });
 
-//Albin: Giving the variable "services" an array with data for all the cards. 
-//Emma: Service-modal-content array 
-const services = [
+//Albin: Giving the variable "about" an array with data for all the cards. 
+//Emma: About-modal-content array 
+const about = [
     {
         name: "Name Lastname",
         content: "Maxime cumque porro impedit voluptate natus? Dolorem consequuntur at velit sunt provident, est corporis repellendus ea nostrum, earum nesciunt sit ex quasi?",
@@ -60,30 +60,30 @@ const services = [
 ];
 
 //Albin: A function to close the card. 
-//Emma: Close the card-arrow function. Changing display style on service-modal-wrapper (HTML document) from flex to none. 
-const closeServiceModal = () => {
-  document.getElementById("service-modal-wrapper").style.display = "none";
+//Emma: Close the card-arrow function. Changing display style on about-modal-wrapper (HTML document) from flex to none. 
+const closeAboutModal = () => {
+  document.getElementById("about-modal-wrapper").style.display = "none";
 };
 
 //Emma: Open the card-arrow function with a for loop. 
-const openServiceModal = () => {
-  const cards = document.getElementsByClassName("service-card"); //Emma: Getting all the service-cards from HTML document to be able to loop over all of the cards. Becomes an array. 
-  for (let i = 0; i < cards.length; i++) {
+const openAboutModal = () => {
+  const cards = document.getElementsByClassName("about-card"); //Emma: Getting all the about-cards from HTML document to be able to loop over all of the cards. Becomes an array. 
+  for (let i = 0; i < cards.length; i++) { //Emma: 
     cards[i].addEventListener("click", () => {
-      document.getElementById("service-modal-wrapper").style.display = "flex";
-      for (let j = 0; j < services.length; j++) {
+      document.getElementById("about-modal-wrapper").style.display = "flex";
+      for (let j = 0; j < about.length; j++) {
         if (i === j) {
-          document.getElementById("service-modal-content").innerHTML = `<h2>${services[j].name}</h2><p>${services[j].content}</p><img src="./media/${services[j].picture}">`;
+          document.getElementById("about-modal-content").innerHTML = `<h2>${about[j].name}</h2><p>${about[j].content}</p><img src="./media/${about[j].picture}">`;
         }
       }
     });
   }
 };
 
-//Loads the function openservicemodal on start up. 
-window.addEventListener("load", openServiceModal);
+//Albin: Loads the function openaboutmodal on start up. 
+window.addEventListener("load", openAboutModal);
 
-//Image-slider code
+//Albin: Image-slider code
 
 const images = [
   {
@@ -106,13 +106,13 @@ const images = [
   },
 ];
 
-//Gives the <img class="main-image"> an src. 
+//Albin: Gives the <img class="main-image"> an src. 
 const setMainImage = (src) => {
   document.getElementById("main-image").setAttribute("src", src);
   setActiveThumbNail();
 };
 
-//Checks which img is in the "main-img" with a for loop then gives that thumbnail with the same src a border and if its not the same it gives it a border but with 0px
+//Albin: Checks which img is in the "main-img" with a for loop then gives that thumbnail with the same src a border and if its not the same it gives it a border but with 0px
 const setActiveThumbNail = () => {
   const thumbs = document.getElementsByClassName("thumbnail");
   for (let i = 0; i < thumbs.length; i++) {
@@ -154,8 +154,11 @@ const nextImage = () => {
     }
   }
 };
-//A Load event that gets fired when the entire page is loaded - Albin 
+
 window.addEventListener("load", () => {
+  document
+    .getElementById("main-image")
+    .setAttribute("src", `./media/${images[0].name}`);
   document.getElementById("thumbnails-wrapper").innerHTML = images
     .map(
       (img) =>
@@ -188,18 +191,17 @@ window.addEventListener("load", () => {
 
 });
 
-//An function that opens the Modal - Albin
+
 const opengallerymodal = () => {
   document.getElementById("gallery-modal-wrapper").style.display = "flex";
   
 };
 
-//An function that closes the modal - Albin
 const closeLightBox = () => {
   document.getElementById("gallery-modal-wrapper").style.display = "none";
 };
 
-//An array with images for the gallery-row - Albin
+
   const rowimages = [
   {
     name: "imgone.jpg",
