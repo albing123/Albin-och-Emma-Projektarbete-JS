@@ -67,7 +67,7 @@ const closeServiceModal = () => {
 
 //Emma: Open the card-arrow function with a for loop. 
 const openServiceModal = () => {
-  const cards = document.getElementsByClassName("service-card");
+  const cards = document.getElementsByClassName("service-card"); //Emma: Getting all the service-cards from HTML document to be able to loop over all of the cards. Becomes an array. 
   for (let i = 0; i < cards.length; i++) {
     cards[i].addEventListener("click", () => {
       document.getElementById("service-modal-wrapper").style.display = "flex";
