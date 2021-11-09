@@ -156,9 +156,6 @@ const nextImage = () => {
 };
 //A Load event that gets fired when the entire page is loaded - Albin 
 window.addEventListener("load", () => {
-  document
-    .getElementById("main-image")
-    .setAttribute("src", `./media/${images[0].name}`);
   document.getElementById("thumbnails-wrapper").innerHTML = images
     .map(
       (img) =>
