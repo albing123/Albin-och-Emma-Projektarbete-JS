@@ -68,11 +68,11 @@ const closeAboutModal = () => {
 //Emma: Open the card-arrow function with a for loop. 
 const openAboutModal = () => {
   const cards = document.getElementsByClassName("about-card"); //Emma: Getting all the about-cards from HTML document to be able to loop over all of the cards. Becomes an array. 
-  for (let i = 0; i < cards.length; i++) { //Emma: 
-    cards[i].addEventListener("click", () => {
-      document.getElementById("about-modal-wrapper").style.display = "flex";
-      for (let j = 0; j < about.length; j++) {
-        if (i === j) {
+  for (let i = 0; i < cards.length; i++) { //Emma: For loop to loop over all the cards. Starts with index 0 as the first card does. As long as i is less than cards-length, the loop will run. And it will increase with 1 everytime it runs and match different card-index for everytime it runs. 
+    cards[i].addEventListener("click", () => { //Emma: Adding a click-event to the cards so that something will happen when you click on each card. In this case, open the cards. 
+      document.getElementById("about-modal-wrapper").style.display = "flex"; //Emma: What happens when you click on each card - the display style changes from none to flex, so it (each card) will appear on the site. 
+      for (let j = 0; j < about.length; j++) { //Emma: For Loop to loop over the about-array that we created above. 
+          if (i === j) { //Emma: If i is the same as j (card-index same as array-index), it will do what is written bellow (= show array-content in the about-array above in the about-modal/card that has the same index.)
           document.getElementById("about-modal-content").innerHTML = `<h2>${about[j].name}</h2><p>${about[j].content}</p><img src="./media/${about[j].picture}">`;
         }
       }
@@ -80,7 +80,8 @@ const openAboutModal = () => {
   }
 };
 
-//Albin: Loads the function openaboutmodal on start up. 
+//Albin: Loads the function openAboutModal on start up. 
+//Emma: Code that make sure that the function openAboutModal is not able to run until the whole site has loaded. 
 window.addEventListener("load", openAboutModal);
 
 //Albin: Image-slider code
