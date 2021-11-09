@@ -561,11 +561,6 @@ i:hover {
   flex-direction: column;
 }
 
-.gallery-row img {
-  height: 200px;
-  width: 300px;
-  cursor: pointer;
-}
 
 #gallery-modal-header {
   display: flex;
@@ -577,4 +572,10 @@ i:hover {
   cursor: pointer;
   font-size: 30px;
   color: beige;
+}
+
+.galleryimages {
+  height: 200px;
+  width: 300px;
+  cursor: pointer;
 }

@@ -220,4 +220,3 @@ const closeLightBox = () => {
     name: "imgsix.jpg",
   },
 ];
-
