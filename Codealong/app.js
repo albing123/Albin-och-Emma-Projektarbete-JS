@@ -81,11 +81,11 @@ const openAboutModal = () => {
 };
 
 //Albin: Loads the function openAboutModal on start up. 
-//Emma: Code that make sure that the function openAboutModal is not able to run until the whole site has loaded. 
+//Emma: Code that make sure that the function openAboutModal is not able to run until the whole site/document has loaded.
 window.addEventListener("load", openAboutModal);
 
 //Albin: Image-slider code
-
+//Emma: 
 const images = [
   {
     name: "imgone.jpg",
