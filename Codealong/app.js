@@ -33,7 +33,8 @@ window.addEventListener("load", function () {
   }
 });
 
-//Giving the variable "services" an array with data for all the cards. 
+//Albin: Giving the variable "services" an array with data for all the cards. 
+//Emma: Service-modal-content array 
 const services = [
     {
         name: "Name Lastname",
@@ -58,12 +59,13 @@ const services = [
     },
 ];
 
-//A function to close the card. 
+//Albin: A function to close the card. 
+//Emma: Close the card-arrow function. Changing display style on service-modal-wrapper (HTML document) from flex to none. 
 const closeServiceModal = () => {
   document.getElementById("service-modal-wrapper").style.display = "none";
 };
 
-
+//Emma: Open the card-arrow function with a for loop. 
 const openServiceModal = () => {
   const cards = document.getElementsByClassName("service-card");
   for (let i = 0; i < cards.length; i++) {
