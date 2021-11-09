@@ -154,11 +154,8 @@ const nextImage = () => {
     }
   }
 };
-
+//A Load event that gets fired when the entire page is loaded - Albin 
 window.addEventListener("load", () => {
-  document
-    .getElementById("main-image")
-    .setAttribute("src", `./media/${images[0].name}`);
   document.getElementById("thumbnails-wrapper").innerHTML = images
     .map(
       (img) =>
@@ -191,17 +188,18 @@ window.addEventListener("load", () => {
 
 });
 
-
+//An function that opens the Modal - Albin
 const opengallerymodal = () => {
   document.getElementById("gallery-modal-wrapper").style.display = "flex";
   
 };
 
+//An function that closes the modal - Albin
 const closeLightBox = () => {
   document.getElementById("gallery-modal-wrapper").style.display = "none";
 };
 
-
+//An array with images for the gallery-row - Albin
   const rowimages = [
   {
     name: "imgone.jpg",
