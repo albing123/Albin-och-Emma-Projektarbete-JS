@@ -84,7 +84,7 @@ const openAboutModal = () => {
 //Emma: Code that make sure that the function openAboutModal is not able to run until the whole site/document has loaded.
 window.addEventListener("load", openAboutModal);
 
-//Albin: Image-slider code
+//Albin: An array with the name of some images we will use.
 //Emma: 
 const images = [
   {
@@ -135,20 +135,22 @@ const prevImage = () => {
   
   for (let i = 0; i < thumbs.length; i++) {
     //Albin: An "if" that checks if thumbs has the same src as the "main-image" and in that case 
-    //Albin: it replaces it with the previous object in the array which in this case is an img
+    //Albin: it replaces it with the previous value in the array which in this case is an img
     if (
       thumbs[i].src === document.getElementById("main-image").src && 
       //Albin: The !== 0 is to prevent the function from 
-      //Albin: firing when we are at the first object in the array
+      //Albin: firing when we are at the first value in the array
       i !== 0
     ) {
       document
     //Albin: If the "thumbnail" and "main-image" has the same src we get the 
     //Albin: "main-image" with .getElementbyId and uses .SetAttribute to change the src from [i]
-    //Albin: to [i -= 1] because then it makes the src of the previous object in the array. 
+    //Albin: to [i -= 1] because then it makes the src of the previous value in the array. 
     //Albin: For example if [i] = [4] then (i -= 1) makes its [3]
          .getElementById("main-image")
         .setAttribute("src", thumbs[(i -= 1)].src);
+        //Albin: Fires the Function SetActiveThumbnail when the previmages span is clicked
+        //Albin: so the correct Thumbnail gets a border. 
       setActiveThumbNail();
     }
   }
@@ -163,44 +165,43 @@ const nextImage = () => {
   for (let i = 0; i < thumbs.length; i++) {
     if (
       thumbs[i].src === document.getElementById("main-image").src &&
-      //Albin: We use -1 to prevent the function from firing when we are at the last object in thumbs.
+      //Albin: We use -1 to prevent the function from firing when we are at the last value in thumbs.
       //Albin: We cant use .length only because we will never get to the last legnth because it starts at 0
       //Albin: That is why we have to put thumbs.legnth -1.
       i !== thumbs.length - 1
     ) {
       document
         .getElementById("main-image")
-        //Albin: We use += 1 so we get the next object in the array. 
+        //Albin: We use += 1 so we get the next value in the array. 
         .setAttribute("src", thumbs[(i += 1)].src);
+        //Albin:   //Albin: Fires the Function SetActiveThumbnail when the previmages span is clicked
+        //Albin: so the correct Thumbnail gets a border. 
       setActiveThumbNail();
     }
   }
 };
 
 window.addEventListener("load", () => {
- 
+ //Albin: Gets the thumbnails-wrapper and fills it with the images from the "images" array
   document.getElementById("thumbnails-wrapper").innerHTML = images
+  //Albin: map is used to hold key-value pairs where the keys can be any datatype.
+  //Albin: we replace the array values with the img source to get the images and then give them the class thumbnail and 
+  //Albin: an onclick to set the main image.The onclick works with this.src to replace the main image with the image that is clicked. 
     .map(
       (img) =>
         `<img src="./media/${img.name}" class="thumbnail" onclick="setMainImage(this.src)">`
     )
+    //Albin: We use .join(""); to make it a string so we dont get the , between the values in the array. 
     .join("");
 
   
-  setActiveThumbNail();
+  //Albin: Makes the functions prev and next-btn to work when the site is loaded
   document.getElementById("prev-btn").addEventListener("click", prevImage);
   document.getElementById("next-btn").addEventListener("click", nextImage);
 
-
-  document.getElementById("gallery-row").innerHTML = rowimages
-  .map(
-    (img) =>
-      `<img src="./media/${img.name}" class="galleryimages">`
-  )
-
-  document
-    .getElementById("main-image")
-    .setAttribute("src", `./media/${images[0].name}`);
+  //Albin: Gets the gallery-row div and fills it with the array rowimages.
+  //Albin: Uses map the same way as before to fill each value in rowimages with the src to the images. And gives it the class galleryimages
+ 
   document.getElementById("gallery-row").innerHTML = rowimages
     .map(
       (img) =>
@@ -211,17 +212,18 @@ window.addEventListener("load", () => {
 
 });
 
-
+//Albin: Makes an function that displays the gallery-modal-wrapper
 const opengallerymodal = () => {
   document.getElementById("gallery-modal-wrapper").style.display = "flex";
   
 };
 
+//Albin: Makes an function that "closes" the gallery-modal-wrapper with display none.
 const closeLightBox = () => {
   document.getElementById("gallery-modal-wrapper").style.display = "none";
 };
 
-
+//Albin: Makes an array with some of the images that will be used. 
   const rowimages = [
   {
     name: "imgone.jpg",
