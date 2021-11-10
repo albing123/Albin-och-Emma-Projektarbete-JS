@@ -107,15 +107,18 @@ const images = [
   },
 ];
 
-//Albin: Gives the <img class="main-image"> an src. 
+//Albin: An function that that sets the src of the div "main-image" 
 const setMainImage = (src) => {
+  //Albin: Changes the src from "main-image" to the parameter "src" with .setAttribute
   document.getElementById("main-image").setAttribute("src", src);
+  //Albin: Activates the function "SetActiveThumbNail" when the page loads
   setActiveThumbNail();
 };
 
 //Albin: Checks which img is in the "main-img" with a for loop then gives that thumbnail with the same src a border and if its not the same it gives it a border but with 0px
 const setActiveThumbNail = () => {
   const thumbs = document.getElementsByClassName("thumbnail");
+  //Albin: An for loop that sets i to 0 and then runs until it is the same number as thumbs length.
   for (let i = 0; i < thumbs.length; i++) {
     if (thumbs[i].src === document.getElementById("main-image").src) {
         thumbs[i].style.border = "2px solid #9C8679";
@@ -125,31 +128,49 @@ const setActiveThumbNail = () => {
   }
 };
 
-//
+//Albin: Makes the function "PrevImage" using arrow function Syntax.
 const prevImage = () => {
+  //Albin: An for loop that sets i to 0 and then runs until its the same number as thumbs length.
   const thumbs = document.getElementsByClassName("thumbnail");
+  
   for (let i = 0; i < thumbs.length; i++) {
+    //Albin: An "if" that checks if thumbs has the same src as the "main-image" and in that case 
+    //Albin: it replaces it with the previous object in the array which in this case is an img
     if (
-      thumbs[i].src === document.getElementById("main-image").src &&
+      thumbs[i].src === document.getElementById("main-image").src && 
+      //Albin: The !== 0 is to prevent the function from 
+      //Albin: firing when we are at the first object in the array
       i !== 0
     ) {
       document
-        .getElementById("main-image")
+    //Albin: If the "thumbnail" and "main-image" has the same src we get the 
+    //Albin: "main-image" with .getElementbyId and uses .SetAttribute to change the src from [i]
+    //Albin: to [i -= 1] because then it makes the src of the previous object in the array. 
+    //Albin: For example if [i] = [4] then (i -= 1) makes its [3]
+         .getElementById("main-image")
         .setAttribute("src", thumbs[(i -= 1)].src);
       setActiveThumbNail();
     }
   }
 };
 
+
+//Albin: Same syntax as the PrevImage with some small changes
+
+
 const nextImage = () => {
   const thumbs = document.getElementsByClassName("thumbnail");
   for (let i = 0; i < thumbs.length; i++) {
     if (
       thumbs[i].src === document.getElementById("main-image").src &&
+      //Albin: We use -1 to prevent the function from firing when we are at the last object in thumbs.
+      //Albin: We cant use .length only because we will never get to the last legnth because it starts at 0
+      //Albin: That is why we have to put thumbs.legnth -1.
       i !== thumbs.length - 1
     ) {
       document
         .getElementById("main-image")
+        //Albin: We use += 1 so we get the next object in the array. 
         .setAttribute("src", thumbs[(i += 1)].src);
       setActiveThumbNail();
     }
