@@ -178,9 +178,7 @@ const nextImage = () => {
 };
 
 window.addEventListener("load", () => {
-  document
-    .getElementById("main-image")
-    .setAttribute("src", `./media/${images[0].name}`);
+ 
   document.getElementById("thumbnails-wrapper").innerHTML = images
     .map(
       (img) =>
